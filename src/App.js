@@ -3,22 +3,23 @@ import axios from "axios";
 import "./App.css";
 
 import TopBar from "./components/TopBar";
-import Image from ".components/Image";
+import Image from "./components/Image";
 import PhotoInfo from "./components/PhotoInfo/PhotoInfo";
 
 
 function App() {
+  const [data, setData] = useState('')
 
   useEffect(() => {
     axios.get('https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP')
-      .then(res => console.log(res.data))
+      .then(res => setData(res.data))
   }, []);
 
   return (
     <div className="App">
       <TopBar />
       <section className="apod-container">
-        <Image />
+        <Image imgURL={data.url} title={data.title} />
         <PhotoInfo />
       </section>
     </div>
