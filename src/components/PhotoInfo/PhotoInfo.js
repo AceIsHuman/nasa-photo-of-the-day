@@ -4,8 +4,7 @@ import Date from "./Date";
 export default function(props) {
     return (
         <div className="photo-info">
-            <Date />
-            
+            <Date date={props.date} setDate={props.setDate} />
         </div>
     )
 }

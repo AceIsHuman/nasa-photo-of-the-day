@@ -9,6 +9,7 @@ import PhotoInfo from "./components/PhotoInfo/PhotoInfo";
 
 function App() {
   const [data, setData] = useState('')
+  const [date, setDate] = useState(data.date);
 
   useEffect(() => {
     axios.get('https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP')
@@ -20,7 +21,7 @@ function App() {
       <TopBar />
       <section className="apod-container">
         <Image imgURL={data.url} title={data.title} />
-        <PhotoInfo />
+        <PhotoInfo date={date} setDate={setDate} />
       </section>
     </div>
   );
