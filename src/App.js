@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import TopBar from "./components/TopBar";
+import Image from ".components/Image";
 import PhotoInfo from "./components/PhotoInfo/PhotoInfo";
 
 
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <TopBar />
       <section className="apod-container">
-        
+        <Image />
         <PhotoInfo />
       </section>
     </div>
