@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 import TopBar from "./components/TopBar";
 import APOD from "./components/APOD/APOD";
+import LastTenDays from "./components/LastTenDays/LastTenDays";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <TopBar />
       <APOD />
+      <LastTenDays />
     </div>
   );
 }
