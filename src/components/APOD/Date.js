@@ -4,7 +4,15 @@ export default function(props) {
     return(
         <div className="date-container">
             <p>Date
-                {new Date().getDate()}
+                <select>
+                    <option>08</option>
+                </select>
+                <select>
+                    <option>01</option>
+                </select>
+                <select>
+                    <option>2019</option>
+                </select>
             </p>
         </div>
     )
