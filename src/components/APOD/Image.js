@@ -1,10 +1,8 @@
 import React from "react";
+import { Image } from "semantic-ui-react";
 
 export default function(props) {
     return(
-        <img src={props.imgURL} alt={props.title} 
-            style={
-                { maxWidth: "30rem", height: "auto", }
-            }/>
+        <Image src={props.imgURL} alt={props.title} size="big" rounded />
     )
 }
