@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import Image from "./Image";
 import PhotoInfo from "./PhotoInfo";
 
 export default function(props) {
-    const data = props.data;
+    const [data, setData] = useState('');
     const [date, setDate] = useState(data.date);
+
+    useEffect(() => {
+      axios.get('https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP')
+        .then(res => setData(res.data))
+    }, []);
+  
     
     return (
         <section 
