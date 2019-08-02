@@ -17,7 +17,7 @@ export default function(props) {
     
     return (
         <Segment>
-            <Grid columns={2} >
+            <Grid columns={2} verticalAlign='middle'>
                 <Grid.Column centered>
                     <Image imgURL={data.url} title={data.title} />
                 </Grid.Column>
