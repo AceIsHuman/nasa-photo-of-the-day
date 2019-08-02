@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Divider, Grid , Segment } from 'semantic-ui-react';
+import { Grid , Segment } from 'semantic-ui-react';
 
 import Image from "./Image";
 import Information from "./Information";
 
-export default function(props) {
+export default function() {
     const [data, setData] = useState('');
     const [date, setDate] = useState(data.date);
 
