@@ -3,7 +3,7 @@ import axios from "axios";
 import { Divider, Grid , Segment } from 'semantic-ui-react';
 
 import Image from "./Image";
-import PhotoInfo from "./PhotoInfo";
+import Information from "./Information";
 
 export default function(props) {
     const [data, setData] = useState('');
@@ -22,7 +22,7 @@ export default function(props) {
                     <Image imgURL={data.url} title={data.title} />
                 </Grid.Column>
                 <Grid.Column centered>
-                    <PhotoInfo date={date} setDate={setDate} title={data.title} copyright={data.copyright} explanation={data.explanation} />
+                    <Information date={date} setDate={setDate} title={data.title} copyright={data.copyright} explanation={data.explanation} />
                 </Grid.Column>
             </Grid>
         </Segment>
