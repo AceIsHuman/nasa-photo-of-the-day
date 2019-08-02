@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 
 export default function(props) {
+    // const [data, setData] = useState('');
     const data = props.data;
-    console.log(props.data);
+
+    // useEffect(() => {
+    //     axios.get(`https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP&date=${props.year}-${props.month}-${props.day}`)
+    //       .then(res => setData(res.data))
+    //   }, []);
 
     return(
         <div>
