@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Divider, Grid , Segment } from 'semantic-ui-react';
 
 import Image from "./Image";
 import PhotoInfo from "./PhotoInfo";
@@ -15,13 +16,15 @@ export default function(props) {
   
     
     return (
-        <section 
-            className="apod-container"
-            style={
-                {display: "flex",}
-            }>
-            <Image imgURL={data.url} title={data.title} />
-            <PhotoInfo date={date} setDate={setDate} title={data.title} copyright={data.copyright} explanation={data.explanation} />
-        </section>
+        <Segment>
+            <Grid columns={2} >
+                <Grid.Column centered>
+                    <Image imgURL={data.url} title={data.title} />
+                </Grid.Column>
+                <Grid.Column centered>
+                    <PhotoInfo date={date} setDate={setDate} title={data.title} copyright={data.copyright} explanation={data.explanation} />
+                </Grid.Column>
+            </Grid>
+        </Segment>
     )
 }
