@@ -6,32 +6,41 @@ import ImageCard from "./ImageCard";
 
 export default function() {
     const [data, setData] = useState('');
-    let year = '2019';
-    let month = '07';
-    let day = '30';
 
-    useEffect(() => {
-      axios.get(`https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP&date=${year}-${month}-${day}`)
-        .then(res => setData(res.data))
-    }, []);
+    function reduceDate(date) {
+        const stringSplit = date.split('-');
+        const dateSplit = stringSplit.map(num => parseInt(num))
+        let [year, month, day] = [dateSplit[0], dateSplit[1], dateSplit[2]];
+        
+        function n(n){
+            return n > 9 ? "" + n: "0" + n;
+        }
+        
+        if (month === 1 && day === 1) { year--; month = 12; day = 31 }
+        else if (month === 3 && day === 1) {month--; day = 28}
+        else if (month < 9 && month % 2 === 1) {month--; day = 30}
+        else if (month < 9 && month % 2 === 0) {month--; day = 31}
+        else if (month > 8 && month % 2 === 1) {month--; day = 31}
+        else if (month > 8 && month % 2 === 0) {month--; day = 30}
+        else if (day > 1) {day--} 
+        
+        month = n(month); day = n(day);
+        
+        return `${year}-${month}-${day}`;
+    }
+
+    const moment = require('moment');
+    let startDate = moment().format('YYYY-MM-DD');
+    const lastTenDays = [];
+
+    for (let i = 0; i < 10; i++) {
+        lastTenDays.push(reduceDate(startDate));
+        startDate = reduceDate(startDate);
+    }
 
     return (
         <div style={{display: "flex", flexWrap: "wrap",justifyContent: "space-around"}}>
-            {/* {() => {
-                for (let i = 0; i < 10; i++) {
-                    return (<ImageCard year="2019" month="07" day="30" />)
-                }
-            }} */}
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
-            <ImageCard data={data} />
+            {lastTenDays.map(date => <ImageCard date={date} />)}
         </div>
     )
 }
