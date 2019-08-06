@@ -18,12 +18,10 @@ export default function() {
     return (
         <Segment>
             <Grid columns={2} verticalAlign='middle'>
-                <Grid.Column centered>
+                <Grid.Row centered>
                     <Image imgURL={data.url} title={data.title} />
-                </Grid.Column>
-                <Grid.Column centered>
                     <Information date={date} setDate={setDate} title={data.title} copyright={data.copyright} explanation={data.explanation} />
-                </Grid.Column>
+                </Grid.Row>
             </Grid>
         </Segment>
     )
