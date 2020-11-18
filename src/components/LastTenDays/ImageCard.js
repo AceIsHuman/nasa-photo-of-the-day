@@ -4,12 +4,11 @@ import axios from "axios";
 
 export default function(props) {
     const [data, setData] = useState('');
-    // const data = props.data;
 
     useEffect(() => {
         axios.get(`https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP&date=${props.date}`)
           .then(res => setData(res.data))
-      }, []);
+      }, [props.date]);
 
     return(
         <div>
