@@ -37,7 +37,7 @@ export default function() {
 
     return (
         <div style={{display: "flex", flexWrap: "wrap",justifyContent: "space-around"}}>
-            {lastTenDays.map(date => <ImageCard date={date} />)}
+            {lastTenDays.map(date => <ImageCard date={date} key={`apod_${date}`} />)}
         </div>
     )
 }
