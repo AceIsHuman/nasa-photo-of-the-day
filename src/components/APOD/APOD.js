@@ -12,9 +12,9 @@ export default function() {
     useEffect(() => {
       axios.get('https://api.nasa.gov/planetary/apod?api_key=ViN1Jyw6VtqDScggUaXdY3SxR3hwhRKmWEFwZaQP')
         .then(res => setData(res.data))
+        .catch(err => window.alert(`Failed to load APOD from NASA API.\n${err.message}`))
     }, []);
-  
-    
+
     return (
         <Segment>
             <Grid columns={2} verticalAlign='middle'>
